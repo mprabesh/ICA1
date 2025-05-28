@@ -31,5 +31,9 @@ jobs:
       - name: Run APP
         run: npm run start
 
+      - name: Kill APP
+        run: - kill $(lsof -t -i:${{secrets.PORT}}) || true
+
+
       - name: Simulate Deployment
         run: echo "Deploying app with token ${{ secrets.PORT }}"
