@@ -32,7 +32,7 @@ jobs:
         run: npm run start
 
       - name: Kill APP
-        run: - kill $(lsof -t -i:${{secrets.PORT}}) || true
+        run:  kill $(lsof -t -i:${{secrets.PORT}}) || true
 
 
       - name: Simulate Deployment
