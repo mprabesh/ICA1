@@ -4,8 +4,8 @@
   "description": "IN CLASS ASSIGNMENT FIRST FOR CBD 3345 COURSE @ LAMBTON COLLEGE @ TORONTO SUMMER SEMESTER FOR DOCT COURSE",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "jest"
+    "start": "node index.js",
+    "test": "jest --detectOpenHandles"
   },
   "author": "mprabesh",
   "license": "ISC",
