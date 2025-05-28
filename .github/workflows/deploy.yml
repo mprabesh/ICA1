@@ -28,11 +28,6 @@ jobs:
       - name: Run tests
         run: npm test
         
-      - name: Run APP
-        run: npm run start
-
-      - name: Kill APP
-        run:  kill $(lsof -t -i:${{secrets.PORT}}) || true
 
 
       - name: Simulate Deployment
