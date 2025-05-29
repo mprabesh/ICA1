@@ -1,0 +1,48 @@
+name: CI/CD - Production
+
+env:
+  GLOBAL_ENV: "workflow-level-prod"
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy-prod:
+    runs-on: ubuntu-latest
+
+    env:
+      NODE_ENV: production
+      DEPLOY_ENV: prod
+      JOB_ENV: "job-level-prod"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Print Workflow and Job Env
+        run: |
+          echo "GLOBAL_ENV = $GLOBAL_ENV"
+          echo "JOB_ENV = $JOB_ENV"
+          echo "NODE_ENV = $NODE_ENV"
+          echo "DEPLOY_ENV = $DEPLOY_ENV"
+
+      # 🔹 STEP-level environment variable
+      - name: Step-level variable
+        run: echo "STEP_ENV = $STEP_ENV"
+        env:
+          STEP_ENV: "step-level-prod"
+
+      - name: Run tests
+        run: npm test
+
+      - name: Deploy to Production Environment
+        run: echo "Deploying to PROD with secure port ${{ secrets.PROD_PORT }}"
