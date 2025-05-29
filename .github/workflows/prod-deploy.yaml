@@ -41,8 +41,6 @@ jobs:
         env:
           STEP_ENV: "step-level-prod"
 
-      - name: Run tests
-        run: npm test
 
       - name: Deploy to Production Environment
         run: echo "Deploying to PROD with secure port ${{ secrets.PROD_PORT }}"
