@@ -35,7 +35,7 @@ jobs:
           echo "NODE_ENV = $NODE_ENV"
           echo "DEPLOY_ENV = $DEPLOY_ENV"
 
-      # 🔹 STEP-level environment variable
+      # STEP-level environment variabl
       - name: Step-level variable
         run: echo "STEP_ENV = $STEP_ENV"
         env:
