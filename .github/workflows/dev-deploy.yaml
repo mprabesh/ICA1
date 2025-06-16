@@ -46,3 +46,6 @@ jobs:
 
       - name: Deploy to Dev Environment
         run: echo "Deploying to DEV with token ${{ secrets.DEV_TOKEN }}"
+      - name: token in github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
